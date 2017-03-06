@@ -53,6 +53,7 @@ class SignInVC: UIViewController {
         PFUser.logInWithUsername(inBackground: UsernameTxt.text!, password: PasswordTxt.text!) { (user, error) -> Void in
             if error == nil {
                 print("hello")
+                print("kill bitschool 2017")
                 
                 // remember user or save in App Memeory did the user login or not
 //                UserDefaults.standard.set(user!.username, forKey: "username")
