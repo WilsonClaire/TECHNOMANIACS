@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0494151E957DCE006282D1 /* feedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0494141E957DCE006282D1 /* feedVC.swift */; };
 		4F17E0891E42A84C0035D2EF /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17E0881E42A84C0035D2EF /* HomeScreen.swift */; };
 		4F2CCB8A1E3A9E8700A23B2A /* picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CCB891E3A9E8700A23B2A /* picture.jpg */; };
 		4F7A14851E3ED990009C863C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A14841E3ED98F009C863C /* SignInVC.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F0494141E957DCE006282D1 /* feedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedVC.swift; sourceTree = "<group>"; };
 		4F17E0881E42A84C0035D2EF /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		4F2CCB891E3A9E8700A23B2A /* picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = picture.jpg; path = Instagram/picture.jpg; sourceTree = "<group>"; };
 		4F7A14841E3ED98F009C863C /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				4FE96AA41E398DF8003A4021 /* AppDelegate.swift */,
 				4FE96AAE1E398DF8003A4021 /* Assets.xcassets */,
 				4FE96AA81E398DF8003A4021 /* Main.storyboard */,
+				4F0494141E957DCE006282D1 /* feedVC.swift */,
 				4FE96AB01E398DF8003A4021 /* LaunchScreen.storyboard */,
 				4FE96AB31E398DF8003A4021 /* Info.plist */,
 				4FE96AAB1E398DF8003A4021 /* Instagram.xcdatamodeld */,
@@ -215,6 +218,7 @@
 				4F7A14891E3ED9C7009C863C /* ResetPasswordVC.swift in Sources */,
 				4F17E0891E42A84C0035D2EF /* HomeScreen.swift in Sources */,
 				4FE96AAD1E398DF8003A4021 /* Instagram.xcdatamodeld in Sources */,
+				4F0494151E957DCE006282D1 /* feedVC.swift in Sources */,
 				4F7DF9DB1E5D2901000B0EE0 /* Affiliation.swift in Sources */,
 				4FE96AA51E398DF8003A4021 /* AppDelegate.swift in Sources */,
 				4F7A14851E3ED990009C863C /* SignInVC.swift in Sources */,
