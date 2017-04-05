@@ -16,19 +16,22 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var picImg: UIImageView!
     @IBOutlet weak var titleTxt: UITextView!
     @IBOutlet weak var publishBtn: UIButton!
-    @IBOutlet weak var removeBtn: UIButton!
+    @IBOutlet weak var listLink: UITextField!
+ 
     
     
     // default func
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //website link
+        var link = listLink.text
+        
         // disable publish btn
         publishBtn.isEnabled = false
         publishBtn.backgroundColor = .lightGray
         
-        // hide remove button
-        removeBtn.isHidden = true
+    
         
         // standart UI containt
         picImg.image = UIImage(named: "pbg.jpg")
@@ -79,8 +82,6 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         publishBtn.isEnabled = true
         publishBtn.backgroundColor = UIColor(red: 52.0/255.0, green: 169.0/255.0, blue: 255.0/255.0, alpha: 1)
         
-        // unhide remove button
-        removeBtn.isHidden = false
         
         // implement second tap for zooming image
         let zoomTap = UITapGestureRecognizer(target: self, action: #selector(uploadVC.zoomImg))
@@ -111,7 +112,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 self.view.backgroundColor = .black
                 self.titleTxt.alpha = 0
                 self.publishBtn.alpha = 0
-                self.removeBtn.alpha = 0
+                
             })
             
             // to unzoom
@@ -126,7 +127,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 self.view.backgroundColor = .white
                 self.titleTxt.alpha = 1
                 self.publishBtn.alpha = 1
-                self.removeBtn.alpha = 1
+                
             })
         }
         
@@ -142,8 +143,10 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         picImg.frame = CGRect(x: 15, y: 15, width: width / 4.5, height: width / 4.5)
         titleTxt.frame = CGRect(x: picImg.frame.size.width + 25, y: picImg.frame.origin.y, width: width / 1.488, height: picImg.frame.size.height)
         publishBtn.frame = CGRect(x: 0, y: height / 1.09, width: width, height: width / 8)
-        removeBtn.frame = CGRect(x: picImg.frame.origin.x, y: picImg.frame.origin.y + picImg.frame.size.height, width: picImg.frame.size.width, height: 20)
     }
+    
+    
+   
     
     
     // clicked publish button
@@ -156,6 +159,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let object = PFObject(className: "posts")
         object["username"] = PFUser.current()!.username
         object["ava"] = PFUser.current()!.value(forKey: "ava") as! PFFile
+        object["link"] = link
         
         let uuid = UUID().uuidString
         object["uuid"] = "\(PFUser.current()!.username!) \(uuid)"
@@ -172,34 +176,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         object["pic"] = imageFile
         
         
-        // send #hashtag to server
-        let words:[String] = titleTxt.text!.components(separatedBy: CharacterSet.whitespacesAndNewlines)
-        
-        // define taged word
-        for var word in words {
-            
-            // save #hasthag in server
-            if word.hasPrefix("#") {
-                
-                // cut symbold
-                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-                word = word.trimmingCharacters(in: CharacterSet.symbols)
-                
-                let hashtagObj = PFObject(className: "hashtags")
-                hashtagObj["to"] = "\(PFUser.current()!.username!) \(uuid)"
-                hashtagObj["by"] = PFUser.current()?.username
-                hashtagObj["hashtag"] = word.lowercased()
-                hashtagObj["comment"] = titleTxt.text
-                hashtagObj.saveInBackground(block: { (success, error) -> Void in
-                    if success {
-                        print("hashtag \(word) is created")
-                    } else {
-                        print(error!.localizedDescription)
-                    }
-                })
-            }
-        }
-        
+       
         
         // finally save information
         object.saveInBackground (block: { (success, error) -> Void in
@@ -220,9 +197,5 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     
-    // clicked remove button
-    @IBAction func removeBtn_clicked(_ sender: AnyObject) {
-        self.viewDidLoad()
-    }
     
 }
