@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4FE96AA01E398DF8003A4021"
                BuildableName = "Instagram.app"
                BlueprintName = "Instagram"
-               ReferencedContainer = "container:Instagram.xcodeproj">
+               ReferencedContainer = "container:BitSchool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "4FE96AA01E398DF8003A4021"
             BuildableName = "Instagram.app"
             BlueprintName = "Instagram"
-            ReferencedContainer = "container:Instagram.xcodeproj">
+            ReferencedContainer = "container:BitSchool.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "4FE96AA01E398DF8003A4021"
             BuildableName = "Instagram.app"
             BlueprintName = "Instagram"
-            ReferencedContainer = "container:Instagram.xcodeproj">
+            ReferencedContainer = "container:BitSchool.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "4FE96AA01E398DF8003A4021"
             BuildableName = "Instagram.app"
             BlueprintName = "Instagram"
-            ReferencedContainer = "container:Instagram.xcodeproj">
+            ReferencedContainer = "container:BitSchool.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
