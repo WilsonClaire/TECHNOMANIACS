@@ -1,4 +1,3 @@
-
 //  AppDelegate.swift
 //  Instagram2.0
 //
@@ -18,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //config of Using Parse
+        //config of Using Parse code in Heroku
         let ParseConfig = ParseClientConfiguration { (ParseMutableClientConfiguration) in
             //accessing Heroku  via Id and Keys
             ParseMutableClientConfiguration.applicationId = "bc796d4a83bd4b125e16a84608fa198f1a56cd2d"
@@ -102,50 +101,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // remember user's login
         let username : String? = UserDefaults.standard.string(forKey: "username")
+        
         // if loged in
         if username != nil {
-            let query = PFQuery(className: "User")
-            query.getObjectInBackground(withId: "5gKDBUxxAW", block: { (object, error) in
-                if error != nil {
-                    print(error!)
-                }
-                else{
-                    if let user = object {
-                        print(user["school"])
-                    }
-                }
-            })
             
-//            let query = PFQuery(className:"_User")
-//            let objectId = query.whereKey("username", equalTo: username!)
-//       
-//            query.findObjectsInBackground (block: {(objects: [PFObject]?, error: Error?) -> Void in
-//                
-//                if error == nil {
-//                    // The find succeeded.
-//                    print("Successfully retrieved \(objects)")
-//                // Do something with the found objects
-//                    for objectId in objects! {
-//                      var school = PFUser.current()?.object(forKey: "school") as? String
-//                        if school == "true"{
-//                        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                        let myTabBar = storyboard.instantiateViewController(withIdentifier: "SchoolTab") as! UITabBarController
-//                        self.window?.rootViewController = myTabBar
-//                    }
-//                    else{
-//                        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                        let myTabBar = storyboard.instantiateViewController(withIdentifier: "DonorTab") as! UITabBarController
-//                        self.window?.rootViewController = myTabBar
-//                    }
-//                    }
-//                }
-//                    
-//                else {
-//                    print("error")
-//                }
-//            }
-//            )}
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let myTabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+            window?.rootViewController = myTabBar
+        }
+        
     }
     
+    
 }
-}
+
+

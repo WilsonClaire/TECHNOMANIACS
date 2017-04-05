@@ -175,13 +175,13 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         user.signUpInBackground { (success, error) -> Void in
             if success {
                 print("registered")
-//                // remember looged user
+                // remember looged user
                 UserDefaults.standard.set(user.username, forKey: "username")
                 UserDefaults.standard.synchronize()
                 
                 // call login func from AppDelegate.swift class
-//                let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//                appDelegate.login()
+                let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.login()
             } else {
                 
                 // show alert message

@@ -52,12 +52,10 @@ class SignInVC: UIViewController {
         // login functions
         PFUser.logInWithUsername(inBackground: UsernameTxt.text!, password: PasswordTxt.text!) { (user, error) -> Void in
             if error == nil {
-                print("hello")
-                print("kill bitschool 2017")
                 
                 // remember user or save in App Memeory did the user login or not
-//                UserDefaults.standard.set(user!.username, forKey: "username")
-//                UserDefaults.standard.synchronize()
+                UserDefaults.standard.set(user!.username, forKey: "username")
+                UserDefaults.standard.synchronize()
                 
                 // call login function from AppDelegate.swift class
                 let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
